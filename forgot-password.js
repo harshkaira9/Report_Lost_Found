@@ -1,0 +1,13 @@
+let currentStep=1,userEmail="",verificationCode="";
+    const emailForm=document.getElementById("email-form"),codeForm=document.getElementById("code-form"),resetForm=document.getElementById("reset-form"),
+    emailInput=document.getElementById("email"),codeInputs=document.querySelectorAll(".code-input"),
+    newPasswordInput=document.getElementById("new-password"),confirmPasswordInput=document.getElementById("confirm-password"),
+    sendCodeBtn=document.getElementById("send-code-btn"),verifyCodeBtn=document.getElementById("verify-code-btn"),
+    resetPasswordBtn=document.getElementById("reset-password-btn"),toast=document.getElementById("toast");
+    document.addEventListener("DOMContentLoaded",()=>{emailForm.addEventListener("submit",handleEmailSubmit);codeForm.addEventListener("submit",handleCodeSubmit);resetForm.addEventListener("submit",handleResetSubmit)});
+    function showToast(msg,type="success"){const t=document.getElementById("toast"),m=document.getElementById("toast-message");const icon=t.querySelector("i");icon.className=type==="success"?"fas fa-check-circle":type==="error"?"fas fa-exclamation-circle":"fas fa-info-circle";m.textContent=msg;t.className=`toast ${type}`;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),4000)}
+    async function handleEmailSubmit(e){e.preventDefault();const email=emailInput.value.trim();if(!email.includes("@")){showToast("Invalid email","error");return}
+      sendCodeBtn.classList.add("loading");verificationCode=Math.floor(100000+Math.random()*900000).toString();document.getElementById("sent-email")?.textContent=email;userEmail=email;showToast("Verification code sent!");setTimeout(()=>goToStep(2),1000);sendCodeBtn.classList.remove("loading")}
+    async function handleCodeSubmit(e){e.preventDefault();const code=[...codeInputs].map(i=>i.value).join("");if(code!==verificationCode){showToast("Invalid code","error");return}showToast("Code verified!");setTimeout(()=>goToStep(3),1000)}
+    async function handleResetSubmit(e){e.preventDefault();if(newPasswordInput.value.length<6){showToast("Password too short","error");return}if(newPasswordInput.value!==confirmPasswordInput.value){showToast("Passwords mismatch","error");return}resetPasswordBtn.classList.add("loading");setTimeout(()=>{showToast("Password reset!");goToStep(4);resetPasswordBtn.classList.remove("loading")},1000)}
+    function goToStep(step){document.querySelectorAll(".step-content").forEach(s=>s.classList.remove("active"));document.getElementById(`step-${step}`).classList.add("active");currentStep=step}

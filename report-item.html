@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Item - Campus Lost & Found</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="report-item.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-search-location"></i>
+                <span>Campus Lost & Found</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#lost-items" class="nav-link">
+                        <i class="fas fa-exclamation-circle"></i> Lost Items
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#found-items" class="nav-link">
+                        <i class="fas fa-check-circle"></i> Found Items
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="report-item.html" class="nav-link active">
+                        <i class="fas fa-plus-circle"></i> Report
+                    </a>
+                 </li>
+                 <li class="nav-item">
+                 <a href="account.html" class="nav-link">
+                 <i class="fas fa-user-circle"></i> Account
+                 </a>
+                 </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+        <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Report an Item</h1>
+                <p class="hero-subtitle">Help us reunite lost items with their owners</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section class="report-section">
+        <div class="container">
+            <!-- Tab Selector -->
+            <div class="report-tabs">
+                <button class="tab-btn active" data-tab="lost">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div>
+                        <span class="tab-title">Report Lost Item</span>
+                        <span class="tab-desc">I lost something</span>
+                    </div>
+                </button>
+                <button class="tab-btn" data-tab="found">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <span class="tab-title">Report Found Item</span>
+                        <span class="tab-desc">I found something</span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Lost Item Form -->
+            <div class="tab-content active" id="lost-form-content">
+                <div class="form-card">
+                    <div class="form-header">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h2>Lost Item Report</h2>
+                        <p>Please provide as much detail as possible to help us locate your item</p>
+                    </div>
+
+                    <form class="report-form" id="lost-item-form">
+                        <!-- Item Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-info-circle"></i>
+                                Item Information
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lost-item-name">Item Name *</label>
+                                    <input type="text" id="lost-item-name" required placeholder="e.g., iPhone 13 Pro, Black Backpack">
+                                    <span class="helper-text">What did you lose?</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lost-category">Category *</label>
+                                    <select id="lost-category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="electronics">📱 Electronics</option>
+                                        <option value="documents">📄 Documents</option>
+                                        <option value="accessories">👓 Accessories</option>
+                                        <option value="clothing">👕 Clothing</option>
+                                        <option value="books">📚 Books & Stationery</option>
+                                        <option value="keys">🔑 Keys & Cards</option>
+                                        <option value="sports">⚽ Sports Equipment</option>
+                                        <option value="other">📦 Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lost-description">Detailed Description *</label>
+                                <textarea id="lost-description" rows="4" required placeholder="Provide as much detail as possible: color, brand, size, unique features, etc."></textarea>
+                                <div class="char-counter">
+                                    <span id="lost-desc-count">0</span> / 500 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location & Date -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Where & When
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lost-location">Last Seen Location *</label>
+                                    <select id="lost-location" required>
+                                        <option value="">Select Location</option>
+                                        <option value="library">📚 Library</option>
+                                        <option value="cafeteria">🍽️ Cafeteria</option>
+                                        <option value="hostel">🏠 Hostel</option>
+                                        <option value="classroom">🎓 Classroom</option>
+                                        <option value="lab">🔬 Laboratory</option>
+                                        <option value="sports">🏃 Sports Complex</option>
+                                        <option value="parking">🚗 Parking Area</option>
+                                        <option value="auditorium">🎭 Auditorium</option>
+                                        <option value="other">📍 Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lost-date">Date Lost *</label>
+                                    <input type="date" id="lost-date" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lost-specific-location">Specific Location Details (Optional)</label>
+                                <input type="text" id="lost-specific-location" placeholder="e.g., Second floor, near water fountain, Room 205">
+                            </div>
+                        </div>
+
+                        <!-- Images -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-images"></i>
+                                Item Images
+                            </h3>
+
+                            <div class="form-group">
+                                <label>Upload Photos (Optional)</label>
+                                <div class="file-upload-area" id="lost-upload-area">
+                                    <input type="file" id="lost-image" accept="image/*" multiple hidden>
+                                    <label for="lost-image" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span class="upload-text">Click to upload or drag and drop</span>
+                                        <span class="upload-hint">PNG, JPG up to 5MB (Max 5 images)</span>
+                                    </label>
+                                </div>
+                                <div id="lost-image-preview" class="image-preview-grid"></div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-user"></i>
+                                Your Contact Information
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lost-contact-name">Full Name *</label>
+                                    <input type="text" id="lost-contact-name" required placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lost-contact-email">Email Address *</label>
+                                    <input type="email" id="lost-contact-email" required placeholder="john.doe@campus.edu">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lost-contact-phone">Phone Number *</label>
+                                    <input type="tel" id="lost-contact-phone" required placeholder="+1 (234) 567-8900">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lost-student-id">Student/Staff ID *</label>
+                                    <input type="text" id="lost-student-id" required placeholder="ID-12345">
+                                </div>
+                            </div>
+
+                            <div class="privacy-notice">
+                                <i class="fas fa-lock"></i>
+                                <span>Your contact information will only be visible to those who find your item</span>
+                            </div>
+                        </div>
+
+                        <!-- Additional Options -->
+                        <div class="form-section">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="lost-notify-email">
+                                    <span class="checkmark"></span>
+                                    <span>Send me email notifications about potential matches</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="lost-notify-sms">
+                                    <span class="checkmark"></span>
+                                    <span>Send me SMS notifications (carrier charges may apply)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-outline">
+                                <i class="fas fa-redo"></i>
+                                Clear Form
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Found Item Form -->
+            <div class="tab-content" id="found-form-content">
+                <div class="form-card">
+                    <div class="form-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Found Item Report</h2>
+                        <p>Thank you for helping reunite items with their owners</p>
+                    </div>
+
+                    <form class="report-form" id="found-item-form">
+                        <!-- Item Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-info-circle"></i>
+                                Item Information
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="found-item-name">Item Name *</label>
+                                    <input type="text" id="found-item-name" required placeholder="e.g., Blue Water Bottle, Gray Hoodie">
+                                    <span class="helper-text">What did you find?</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="found-category">Category *</label>
+                                    <select id="found-category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="electronics">📱 Electronics</option>
+                                        <option value="documents">📄 Documents</option>
+                                        <option value="accessories">👓 Accessories</option>
+                                        <option value="clothing">👕 Clothing</option>
+                                        <option value="books">📚 Books & Stationery</option>
+                                        <option value="keys">🔑 Keys & Cards</option>
+                                        <option value="sports">⚽ Sports Equipment</option>
+                                        <option value="other">📦 Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="found-description">Detailed Description *</label>
+                                <textarea id="found-description" rows="4" required placeholder="Describe the item: color, brand, size, unique features, etc."></textarea>
+                                <div class="char-counter">
+                                    <span id="found-desc-count">0</span> / 500 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location & Date -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Where & When
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="found-location">Found Location *</label>
+                                    <select id="found-location" required>
+                                        <option value="">Select Location</option>
+                                        <option value="library">📚 Library</option>
+                                        <option value="cafeteria">🍽️ Cafeteria</option>
+                                        <option value="hostel">🏠 Hostel</option>
+                                        <option value="classroom">🎓 Classroom</option>
+                                        <option value="lab">🔬 Laboratory</option>
+                                        <option value="sports">🏃 Sports Complex</option>
+                                        <option value="parking">🚗 Parking Area</option>
+                                        <option value="auditorium">🎭 Auditorium</option>
+                                        <option value="other">📍 Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="found-date">Date Found *</label>
+                                    <input type="date" id="found-date" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="found-specific-location">Specific Location Details (Optional)</label>
+                                <input type="text" id="found-specific-location" placeholder="e.g., Under table near window, Lab bench 3">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="found-current-location">Current Location of Item *</label>
+                                <input type="text" id="found-current-location" required placeholder="e.g., Security Office, Room 101, With me">
+                                <span class="helper-text">Where can the owner retrieve this item?</span>
+                            </div>
+                        </div>
+
+                        <!-- Images -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-images"></i>
+                                Item Images
+                            </h3>
+
+                            <div class="form-group">
+                                <label>Upload Photos (Recommended)</label>
+                                <div class="file-upload-area" id="found-upload-area">
+                                    <input type="file" id="found-image" accept="image/*" multiple hidden>
+                                    <label for="found-image" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span class="upload-text">Click to upload or drag and drop</span>
+                                        <span class="upload-hint">PNG, JPG up to 5MB (Max 5 images)</span>
+                                    </label>
+                                </div>
+                                <div id="found-image-preview" class="image-preview-grid"></div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-user"></i>
+                                Your Contact Information
+                            </h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="found-contact-name">Full Name *</label>
+                                    <input type="text" id="found-contact-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="found-contact-email">Email Address *</label>
+                                    <input type="email" id="found-contact-email">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="found-contact-phone">Phone Number *</label>
+                                    <input type="tel" id="found-contact-phone">
+                                    </div>
+                                <div class="form-group">
+                                    <label for="found-student-id">Student/Staff ID *</label>
+                                    <input type="text" id="found-student-id">
+                                </div>
+                            </div>
+
+                            <div class="privacy-notice">
+                                <i class="fas fa-lock"></i>
+                                <span>Your contact information will be shared with the item owner for retrieval</span>
+                            </div>
+                        </div>
+
+                        <!-- Additional Options -->
+                        <div class="form-section">
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="found-notify-email">
+                                    <span class="checkmark"></span>
+                                    <span>Notify me when someone claims this item</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="found-hand-security" checked>
+                                    <span class="checkmark"></span>
+                                    <span>I have handed this item to campus security</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-outline">
+                                <i class="fas fa-redo"></i>
+                                Clear Form
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="tips-section">
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Helpful Tips
+                </h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-camera"></i>
+                        <h3>Take Clear Photos</h3>
+                        <p>Include multiple angles and any distinctive features or markings</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-pencil-alt"></i>
+                        <h3>Be Detailed</h3>
+                        <p>The more details you provide, the easier it is to match items with owners</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Report Quickly</h3>
+                        <p>Report lost or found items as soon as possible for better chances of recovery</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Verify Ownership</h3>
+                        <p>Always verify ownership before handing over found items</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="success-animation">
+                <div class="checkmark-circle">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            <h2>Report Submitted Successfully!</h2>
+            <p id="success-message">Your report has been submitted. We'll notify you if there's a match.</p>
+            <div class="success-actions">
+                <a href="index.html" class="btn btn-outline">Go to Home</a>
+                <button class="btn btn-primary" onclick="closeSuccessModal()">Report Another Item</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Success!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Campus Lost & Found</h3>
+                    <p>Helping the campus community recover lost belongings.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#lost-items">Lost Items</a></li>
+                        <li><a href="index.html#found-items">Found Items</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Campus Lost & Found. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="report-item.js"></script>
+    <!-- Firebase SDK setup -->
+<script type="module" src="firebase.js"></script>
+</body>
+</html>
