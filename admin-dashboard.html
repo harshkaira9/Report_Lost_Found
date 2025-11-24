@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Lost & Found</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <header class="top-navbar">
+        <div class="navbar-left">
+            <h2 class="page-title"><i class="fas fa-shield-alt" style="color: var(--primary-color); margin-right: 8px;"></i> Admin Portal</h2>
+        </div>
+
+        <div class="navbar-right">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search by ID, Name or Location...">
+            </div>
+            <a href="admin-dashboard.html" class="back-btn">
+                <i class="fas fa-columns"></i> Dashboard
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+
+            <div class="section-header">
+                <div class="header-left">
+                    <h2>Active Reports</h2>
+                    <p class="sub-text">Manage lost items and track recovery status.</p>
+                </div>
+                <span class="section-tag">Live Feed • 4 Items</span>
+            </div>
+
+            <div class="items-grid">
+
+                <article class="item-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1596707328224-b15c929af5d3?auto=format&fit=crop&w=800&q=80" alt="Laptop">
+                        <span class="category-tag">Electronics</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="item-header">
+                            <h3 class="item-name">Lenovo ThinkPad</h3>
+                            <span class="report-id">#LFS-10203</span>
+                        </div>
+                        <p class="item-desc">Black laptop, slight crack on the top lid. Found near the main library entrance on the bench.</p>
+                        
+                        <div class="meta-grid">
+                            <div class="meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">Oct 15, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Time</span>
+                                <span class="meta-value">14:30 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="badges-wrapper">
+                            <span class="badge location"><i class="fas fa-map-pin"></i> Library</span>
+                            <span class="badge status-lost"><i class="fas fa-exclamation-circle"></i> Unclaimed</span>
+                            <span class="badge neutral"><i class="fas fa-star"></i> Reward</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="item-details.html?id=1" class="details-btn">View Case Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="item-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1621609100840-705a8f4c803e?auto=format&fit=crop&w=800&q=80" alt="Backpack">
+                        <span class="category-tag">Bags</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="item-header">
+                            <h3 class="item-name">Blue Nike Backpack</h3>
+                            <span class="report-id">#LFS-10204</span>
+                        </div>
+                        <p class="item-desc">Standard blue backpack. Contains textbooks and a water bottle. Zipper is jammed.</p>
+                        
+                        <div class="meta-grid">
+                            <div class="meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">Oct 14, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Time</span>
+                                <span class="meta-value">10:00 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="badges-wrapper">
+                            <span class="badge location"><i class="fas fa-map-pin"></i> Hall B</span>
+                            <span class="badge status-pending"><i class="fas fa-clock"></i> Pending</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="item-details.html?id=2" class="details-btn">View Case Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="item-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1608779603092-23f03ac3d49f?auto=format&fit=crop&w=800&q=80" alt="Keys">
+                        <span class="category-tag">Keys</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="item-header">
+                            <h3 class="item-name">House Keys (Lanyard)</h3>
+                            <span class="report-id">#LFS-10205</span>
+                        </div>
+                        <p class="item-desc">Set of 3 keys on a red university lanyard. Has a small star keychain attached.</p>
+                        
+                        <div class="meta-grid">
+                            <div class="meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">Oct 13, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Time</span>
+                                <span class="meta-value">18:00 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="badges-wrapper">
+                            <span class="badge location"><i class="fas fa-map-pin"></i> Cafeteria Path</span>
+                            <span class="badge status-lost"><i class="fas fa-exclamation-circle"></i> Unclaimed</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="item-details.html?id=3" class="details-btn">View Case Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="item-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1546286782-f54f738676d9?auto=format&fit=crop&w=800&q=80" alt="Glasses">
+                        <span class="category-tag">Accessories</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="item-header">
+                            <h3 class="item-name">Gold Rimmed Glasses</h3>
+                            <span class="report-id">#LFS-10206</span>
+                        </div>
+                        <p class="item-desc">Prescription glasses with gold rim. Left on the table near the window.</p>
+                        
+                        <div class="meta-grid">
+                            <div class="meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">Oct 12, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Time</span>
+                                <span class="meta-value">11:45 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="badges-wrapper">
+                            <span class="badge location"><i class="fas fa-map-pin"></i> Student Union</span>
+                            <span class="badge status-found"><i class="fas fa-check"></i> Reunited</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="#" class="details-btn claimed"><i class="fas fa-check"></i> Case Closed</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            </div>
+    </main>
+
+    <script src="item-details.js"></script>
+    <script type="module" src="firebase.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details | Lost & Found</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <header class="top-navbar">
+        <div class="navbar-left">
+            <h2 class="page-title">Item Details</h2>
+        </div>
+        <div class="navbar-right">
+            <a href="admin-dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="details-container">
+            <div class="details-grid">
+                
+                <div class="details-image-section">
+                    <img id="item-image" src="https://images.unsplash.com/photo-1596707328224-b15c929af5d3?auto=format&fit=crop&w=1200&q=80" alt="Lost Item">
+                    
+                    <div class="details-overlay-badges">
+                        <span class="badge status-lost" id="status-badge">
+                            <i class="fas fa-exclamation-circle"></i> Unclaimed
+                        </span>
+                        <span class="badge location">
+                            <i class="fas fa-map-marker-alt"></i> Library
+                        </span>
+                    </div>
+                </div>
+
+                <div class="details-info-section">
+                    
+                    <div class="details-header">
+                        <h1 class="details-title" id="item-name">Black Lenovo Laptop</h1>
+                        <span class="details-id" id="item-id">Report ID: #LFS-10203</span>
+                    </div>
+
+                    <div class="description-box">
+                        <h4>Description</h4>
+                        <p id="item-desc">
+                            Black laptop found near the main library entrance on the bench. 
+                            It has a unique crack on the top lid near the logo. 
+                            The battery was dead when found.
+                        </p>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Category</span>
+                        <span class="info-value">Electronics</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Date Reported</span>
+                        <span class="info-value">Oct 15, 2025</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Time Found</span>
+                        <span class="info-value">14:30 PM</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Finder / Contact</span>
+                        <span class="info-value">Campus Security (Officer Dave)</span>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-outline" onclick="window.print()">
+                            <i class="fas fa-print"></i> Print Report
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-check-double"></i> Mark as Claimed
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple script to handle URL parameters if you want dynamic loading later
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        console.log("Viewing Item ID:", id);
+        // You can add your firebase logic here to fetch real data
+    </script>
+</body>
+</html>
