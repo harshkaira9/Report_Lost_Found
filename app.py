@@ -1,15 +1,16 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from firebase_admin import credentials, initialize_app, firestore, storage
 from datetime import datetime
+import traceback
 
 # ========================================
 # 🔧 FLASK CONFIGURATION & FIREBASE SETUP
 # ========================================
 
 # Tell Flask where frontend files are stored
-# Make sure all your .html, .js, .css are inside the 'frontend' folder
-app = Flask(__name__, template_folder='frontend', static_folder='frontend', static_url_path='')
+# Make sure all your .html, .js, .css are inside the 'Fronteend' folder
+app = Flask(__name__, template_folder='Fronteend', static_folder='Fronteend', static_url_path='')
 
 # Secret key for session security
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev_secret_key')
@@ -39,7 +40,8 @@ except Exception as e:
 
 def get_download_url(blob):
     """Generate a public download URL for uploaded image."""
-    return f"https://storage.googleapis.com/{BUCKET.name}/{blob.name}"
+    # Use the blob's public_url method for more reliable URL generation
+    return blob.public_url
 
 
 # ========================================
@@ -87,19 +89,27 @@ def submit_report():
                 filename = f"{item_type}/{datetime.now().strftime('%Y%m%d%H%M%S')}_{file.filename}"
                 blob = BUCKET.blob(filename)
                 blob.upload_from_file(file)
+                # Make the blob publicly accessible
+                blob.make_public()
                 image_urls.append(get_download_url(blob))
 
         # Save report to Firestore
         report_data['images'] = image_urls
         report_data['timestamp'] = firestore.SERVER_TIMESTAMP
-        db.collection('reports').add(report_data)
-
+        
+        # Add document to Firestore and get the document reference
+        # add() returns a tuple: (write_result, document_reference)
+        write_result, doc_ref = db.collection('reports').add(report_data)
+        print(f"✅ Report saved to Firestore with ID: {doc_ref.id}")
+        
         flash("✅ Report submitted successfully!", "success")
-        return {"message": "Report uploaded successfully."}, 200
+        return jsonify({"message": "Report uploaded successfully."}), 200
 
     except Exception as e:
-        print("❌ Error:", e)
-        return {"error": str(e)}, 500
+        error_trace = traceback.format_exc()
+        print(f"❌ Error in submit_report: {e}")
+        print(f"Full traceback:\n{error_trace}")
+        return jsonify({"error": str(e)}), 500
 
 
 # ========================================
